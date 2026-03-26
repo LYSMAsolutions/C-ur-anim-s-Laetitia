@@ -1,107 +1,102 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>❤️ Pour Laetitia</title>
+<meta charset="UTF-8">
+<title>❤️ Pour Laetitia</title>
 
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(135deg, #0F172A, #1E293B);
-      font-family: 'Segoe UI', sans-serif;
-      overflow: hidden;
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at center, #1e293b, #020617);
+    font-family: 'Segoe UI', sans-serif;
+    color: white;
+    overflow: hidden;
+  }
+
+  .container {
+    text-align: center;
+  }
+
+  h1 {
+    font-weight: 300;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+  }
+
+  /* ❤️ SVG cœur */
+  svg {
+    width: 250px;
+    height: 250px;
+  }
+
+  path {
+    fill: none;
+    stroke: #ff4d6d;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+
+    animation: draw 3s ease forwards, pulse 1.5s ease-in-out infinite 3s;
+  }
+
+  /* ✏️ animation dessin */
+  @keyframes draw {
+    to {
+      stroke-dashoffset: 0;
     }
+  }
 
-    .container {
-      text-align: center;
-      color: white;
+  /* 💓 battement */
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+      filter: drop-shadow(0 0 5px #ff4d6d);
     }
-
-    h1 {
-      font-weight: 300;
-      margin-bottom: 40px;
-      letter-spacing: 2px;
+    50% {
+      transform: scale(1.05);
+      filter: drop-shadow(0 0 20px #ff4d6d);
     }
+  }
 
-    /* ❤️ CŒUR */
-    .heart {
-      position: relative;
-      width: 120px;
-      height: 120px;
-      background: linear-gradient(135deg, #ff4d6d, #ff1e4d);
-      transform: rotate(45deg);
-      margin: 0 auto;
-      animation: beat 1s infinite;
-      box-shadow: 0 0 40px rgba(255, 77, 109, 0.6);
-      cursor: pointer;
-    }
+  .message {
+    margin-top: 30px;
+    font-size: 20px;
+    opacity: 0;
+    animation: fadeIn 2s ease forwards;
+    animation-delay: 3s;
+  }
 
-    .heart::before,
-    .heart::after {
-      content: "";
-      position: absolute;
-      width: 120px;
-      height: 120px;
-      background: inherit;
-      border-radius: 50%;
-    }
-
-    .heart::before {
-      top: -60px;
-      left: 0;
-    }
-
-    .heart::after {
-      left: -60px;
-      top: 0;
-    }
-
-    @keyframes beat {
-      0%, 100% {
-        transform: rotate(45deg) scale(1);
-      }
-      50% {
-        transform: rotate(45deg) scale(1.1);
-      }
-    }
-
-    /* ✨ Message */
-    .message {
-      margin-top: 40px;
-      font-size: 18px;
-      opacity: 0;
-      transition: 0.4s ease;
-    }
-
-    .show {
+  @keyframes fadeIn {
+    to {
       opacity: 1;
       transform: translateY(-10px);
     }
+  }
 
-  </style>
+</style>
 </head>
 
 <body>
 
-  <div class="container">
-    <h1>Pour toi ❤️</h1>
+<div class="container">
+  <h1>Pour toi ❤️</h1>
 
-    <div class="heart" onclick="showMessage()"></div>
+  <!-- ❤️ vrai tracé de cœur -->
+  <svg viewBox="0 0 32 29.6">
+    <path d="M23.6,0c-3.4,0-6.3,2.1-7.6,5.1C14.7,2.1,11.8,0,8.4,0
+    C3.8,0,0,3.8,0,8.4c0,9.4,16,21.2,16,21.2s16-11.8,16-21.2
+    C32,3.8,28.2,0,23.6,0z"/>
+  </svg>
 
-    <div id="msg" class="message">
-      Je t’aime ❤️
-    </div>
-  </div>
-
-  <script>
-    function showMessage() {
-      document.getElementById('msg').classList.toggle('show');
-    }
-  </script>
+  <div class="message">Je t’aime ❤️</div>
+</div>
 
 </body>
 </html>
